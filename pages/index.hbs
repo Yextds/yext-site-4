@@ -1,0 +1,343 @@
+---
+{
+"urlFormat": "index.html"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {{global.name}}</title>
+    <meta name="description" content="{{global.name}}">
+    {{>head}}
+    {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+    <!--Replace with your tailwind.css once created-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
+    {{>top-nav}}
+    {{>navbar}}
+    <div class="w-full m-0 p-0 bg-cover bg-bottom">
+      <div class="relative">
+      <img src="images/banner-img.jpg" class="object-cover h-96 w-full md:h-auto">
+      <div class="absolute w-full xl:top-20 lg:top-16 md:top-10 top-6">
+        <div class="container mx-auto px-4">
+
+          <div class="relative w-full max-w-xs xl:max-w-lg lg:max-w-sm md:max-w-xs ">
+
+            <img class="xl:max-w-xl w-full" src="images/banner-graphic.png">
+            
+            <div class="absolute w-full lg:top-32 w-9/12 left-11 top-24 md:top-24">
+              <h4 class="xl:text-6xl lg:text-4xl md:text-3xl font-semibold text-textwhite font-Josefin pb-4 xl:mb-3 relative z-10">Dotsquares</h4>
+              <p class="font-light text-textwhite xl:text-xl lg:text-xl md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis eu orci eu laoreet.</p>
+            </div>
+
+
+          </div>
+
+
+          
+
+        </div>
+
+      </div>
+     </div>
+
+
+    </div>
+
+    <section class="about relative mt-16">
+      <div class="container mx-auto px-4">
+        <span class="absolute top-0 left-8"><img src="images/graphics-about.jpg" alt="circle"></span>
+
+        <div class="w-full flex flex-wrap justify-between mx-auto pb-10">
+          <div class="relative w-full md:w-6/12 text-center md:text-left pb-20">
+            <img class="inline-block w-full 2xl:w-auto" src="images/about-bg.jpg" alt="about">
+            <img class="absolute top-0 2xl:left-8 w-full 2xl:w-auto" src="images/about-img.png" alt="about2">
+          </div>
+          <div class="w-full md:w-6/12 pt-8 xl:pt-32 2xl:pl-4 relative md:pl-8">
+
+            <img class="absolute xl:top-28 lg:top-8 2xl:left-0" src="images/dot-bg.jpg">
+            <h3 class="font-medium text-bluetext uppercase text-sm font-Josefin pb-2 relative z-10">About Us</h3>
+            <h2 class="text-2xl lg:text-5xl md:text-3xl font-semibold text-bluetext font-Josefin pb-4 mb-3  relative z-10">Creative Digital<br> Design & Development</h2>
+            <p class="font-base text-bluetext font-Josefin leading-relaxed  relative z-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis eu orci eu laoreet. Vestibulum sagittis arcu non consectetur semper. Suspendisse condimentum feugiat tortor et semper.</p>
+            <a class="bg-primary hover:bg-secondary text-textwhite font-medium capitalize px-10 py-4 inline-block mt-4 lg:mt-12" href="#">See how we work</a>
+          </div>
+
+
+
+
+        </div>
+        <div class="w-full flex flex-wrap justify-between mx-auto xl:pt-24 xl:pb-24 lg:pt-20 lg:pb-20 xl:pt-24 xl:pb-24 md:pt-16 md:pb-16 pb-10">
+          
+          <div class="w-full md:w-3/12 text-center">
+            <div class="bg-transparent py-6 lg:w-9/12 md:w-11/12 mx-auto xl:px-7 rounded-lg hover:shadow-2xl hover:bg-white rounded-iconradious">
+              <span class="inline-block w-28 h-24 text-center bg-lightorange rounded-iconradious mb-6"><img class="w-12 inline-block mt-6" src="images/ab-icon1.png" alt="circle"></span>
+              <h3 class="lg:text-lg md:text-base font-semibold text-black mb-3">Lorem ipsum dolor</h3>
+              <p class="lg:text-base md:text-sm text-black">Lorem ipsum dolor sit amet, “consectetur” </p>
+            </div>
+          </div>
+          <div class="w-full md:w-3/12 text-center">
+            <div class="bg-transparent py-6 lg:w-9/12 md:w-11/12 mx-auto xl:px-7 rounded-lg hover:shadow-2xl hover:bg-white rounded-iconradious">
+              <span class="inline-block w-28 h-24 text-center bg-lightblue rounded-iconradious mb-6"><img class="w-12 inline-block mt-6" src="images/ab-icon2.png" alt="circle"></span>
+              <h3 class="lg:text-lg md:text-base font-semibold text-black mb-2">Lorem ipsum dolor</h3>
+              <p class="lg:text-base md:text-sm text-black">Lorem ipsum dolor sit amet, “consectetur” </p>
+            </div>
+          </div>
+          <div class="w-full md:w-3/12 text-center">
+            <div class="bg-transparent py-6 lg:w-9/12 md:w-11/12 mx-auto xl:px-7 rounded-lg hover:shadow-2xl hover:bg-white rounded-iconradious">
+              <span class="inline-block w-28 h-24 text-center bg-lightgrey rounded-iconradious mb-6"><img class="w-12 inline-block mt-6" src="images/ab-icon3.png" alt="circle"></span>
+              <h3 class="lg:text-lg md:text-base font-semibold text-black mb-2">Lorem ipsum dolor</h3>
+              <p class="lg:text-base md:text-sm text-black">Lorem ipsum dolor sit amet, “consectetur”</p>
+            </div>
+          </div>
+          <div class="w-full md:w-3/12 text-center">
+            <div class="bg-transparent py-6 lg:w-9/12 md:w-11/12 mx-auto xl:px-7 rounded-lg hover:shadow-2xl hover:bg-white rounded-iconradious">
+              <span class="inline-block w-28 h-24 text-center bg-lightgreen rounded-iconradious mb-6"><img class="w-12 inline-block mt-6" src="images/ab-icon4.png" alt="circle"></span>
+              <h3 class="lg:text-lg md:text-base font-semibold text-black mb-2">Lorem ipsum dolor</h3>
+              <p class="lg:text-base md:text-sm text-black">Lorem ipsum dolor sit amet, “consectetur”</p>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+    </section>
+    <section class="relative w-full">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/3">
+          <div class="relative">
+            <img class="inline-block w-full" src="images/news-img1.jpg">
+            <div class="absolute bottom-4 z-10 w-full lg:py-6 xl:px-9 lg:px-9 md:px-4 px-4">
+              <h4 class="xl:text-2xl lg:text-2xl md:text-lg font-medium text-textwhite lg:mb-2 flex items-center">What we do <span class="w-12 bg-primary h-0.5 inline-block ml-3"></span></h4>
+              <p class="lg:text-base md:text-xs text-base text-textwhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3">
+          <div class="relative">
+            <img class="inline-block w-full" src="images/news-img2.jpg">
+            <div class="absolute bottom-4 z-10 w-full lg:py-6 xl:px-9 lg:px-9 md:px-4 px-4">
+              <h4 class="xl:text-2xl lg:text-2xl md:text-lg font-medium text-textwhite lg:mb-2 flex items-center">Techsquares <span class="w-12 bg-primary h-0.5 inline-block ml-3"></span></h4>
+              <p class="lg:text-base md:text-xs text-base text-textwhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3">
+          <div class="relative">
+            <img class="inline-block w-full" src="images/news-img3.jpg">
+            <div class="absolute bottom-4 z-10 w-full lg:py-6 xl:px-9 lg:px-9 md:px-4 px-4">
+              <h4 class="xl:text-2xl lg:text-2xl md:text-lg font-medium text-textwhite lg:mb-2 flex items-center">Press & Events <span class="w-12 bg-primary h-0.5 inline-block ml-3"></span></h4>
+              <p class="lg:text-base md:text-xs text-base text-textwhite">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="relative w-full lg:pt-20 lg:pb-20 md:pt-10 md:pb-10 pt-10 pb-10">
+      
+      <div class="container mx-auto px-4">
+        <h3 class="font-medium text-bluetext uppercase text-sm font-Josefin pb-2 text-center">dotsquares</h3>
+        <h2 class="text-2xl lg:text-4xl font-bold text-bluetext font-Josefin pb-4 text-center mb-10">Featured Products</h2>
+        <div class="flex flex-wrap">
+          
+          <div class="w-full lg:w-1/4 px-4 md:w-2/4 lg:m-0 md:mb-20 mb-20">
+            <div class="relative xl:w-10/12 mx-auto w-full">
+              <div class="w-full">
+                <img src="images/featured-img1.jpg" class="rounded-tl-featradious rounded-br-featradious w-full">
+              </div>
+              <div class="absolute -bottom-7 bg-whitetbg w-11/12 mx-auto left-0 right-0 px-7 py-4 drop-shadow-2xl rounded-iconradious">
+                <p class="text-bluetext text-sm">Business Planning online assessment</p>
+                <span class="text-bluetext text-lg font-semibold">£12.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/4 px-4 md:w-2/4 lg:m-0 md:mb-20 mb-20">
+            <div class="relative xl:w-10/12 mx-auto w-full">
+              <div class="w-full">
+                <img src="images/featured-img2.jpg" class="rounded-tl-featradious rounded-br-featradious w-full">
+              </div>
+              <div class="absolute -bottom-7 bg-whitetbg w-11/12 mx-auto left-0 right-0 px-7 py-4 drop-shadow-2xl rounded-iconradious">
+                <p class="text-bluetext text-sm">Business Planning online assessment</p>
+                <span class="text-bluetext text-lg font-semibold">£12.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/4 px-4 md:w-2/4 lg:m-0 md:mb-20 mb-20">
+            <div class="relative xl:w-10/12 mx-auto w-full">
+              <div class="w-full">
+                <img src="images/featured-img3.jpg" class="rounded-tl-featradious rounded-br-featradious w-full">
+              </div>
+              <div class="absolute -bottom-7 bg-whitetbg w-11/12 mx-auto left-0 right-0 px-7 py-4 drop-shadow-2xl rounded-iconradious">
+                <p class="text-bluetext text-sm">Business Planning online assessment</p>
+                <span class="text-bluetext text-lg font-semibold">£12.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/4 px-4 md:w-2/4 lg:m-0 md:mb-20 mb-20">
+            <div class="relative xl:w-10/12 mx-auto w-full">
+              <div class="w-full">
+                <img src="images/featured-img4.jpg" class="rounded-tl-featradious rounded-br-featradious w-full">
+              </div>
+              <div class="absolute -bottom-7 bg-whitetbg w-11/12 mx-auto left-0 right-0 px-7 py-4 drop-shadow-2xl rounded-iconradious">
+                <p class="text-bluetext text-sm">Business Planning online assessment</p>
+                <span class="text-bluetext text-lg font-semibold">£12.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </section>
+    <section class="w-full inline-block align-top">
+      
+      <div class="relative">
+        
+        <div class="absolute left-0 right-0 mx-auto md:top-1/4 z-10 top-10">
+          <h2 class="text-xl leading-tight mb-6 text-textwhite font-medium text-center xl:text-3xl">Why not tell us about your new project,<br> your future dream job, or maybe you simply want to <br>talk over a cup of coffee.</h2>
+          <div class="mb-4 text-center">
+            <a href="#" class="inline-block bg-whitetbg w-16 h-16 text-primary rounded-full text-2xl text-center  pt-4"><i class="fa fa-play" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="w-full relative">
+          <div class="absolute left-0 bottom-0 w-auto text-left"><img class="inline-block md:w-full w-2/4" src="images/video-graphic.png"></div>
+          <div class="absolute right-0 top-0 w-auto text-right"><img class="inline-block md:w-full w-2/4" src="images/video-graphicright.png"></div>
+
+          <img src="images/video-img.jpg" class="object-cover w-full 2xl:h-auto md:h-96 2xl:h-auto h-64">
+        </div>
+
+
+      </div>
+    </section>
+
+
+
+<section class="relative w-full pt-20 pb-20">
+  <div class="container mx-auto px-4">
+     <h2 class="text-2xl lg:text-4xl font-bold text-bluetext font-Josefin pb-4 text-center mb-8">Latest News</h2>
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/3">
+          <div class="relative">
+            <img class="inline-block w-full" src="images/latest-news1.jpg">
+            <div class="absolute bottom-4 z-10 w-full lg:py-6 lg:px-9 md:px-6 px-4">
+              <p class="text-sm font-normal text-textwhite mb-0 flex items-center"><span class="inline-block mr-3 text-2xl"><i class="fa fa-clock-o" aria-hidden="true"></i></span>March 9, 2020 </p>
+              <h3 class="lg:text-xl md:text-base font-medium text-textwhite">Lorem ipsum dolor consectetur.</h3>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3">
+          <div class="relative">
+            <img class="inline-block w-full" src="images/latest-news2.jpg">
+            <div class="absolute bottom-4 z-10 w-full lg:py-6 lg:px-9 md:px-6 px-4">
+              <p class="text-sm font-normal text-textwhite mb-0 flex items-center"><span class="inline-block mr-3 text-2xl"><i class="fa fa-clock-o" aria-hidden="true"></i></span>March 9, 2020 </p>
+              <h3 class="lg:text-xl md:text-base font-medium text-textwhite">Lorem ipsum dolor consectetur.</h3>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3">
+          <div class="relative">
+            <img class="inline-block w-full" src="images/latest-news3.jpg">
+            <div class="absolute bottom-4 z-10 w-full lg:py-6 lg:px-9 md:px-6 px-4">
+              <p class="text-sm font-normal text-textwhite mb-0 flex items-center"><span class="inline-block mr-3 text-2xl"><i class="fa fa-clock-o" aria-hidden="true"></i></span>March 9, 2020 </p>
+              <h3 class="lg:text-xl md:text-base font-medium text-textwhite">Lorem ipsum dolor consectetur.</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </section>
+
+
+
+ <section class="relative w-full pt-20 pb-20 bg-clientbg">
+      
+      <div class="container mx-auto px-4">
+        <h3 class="font-medium text-bluetext uppercase text-sm font-Josefin pb-2 text-center">TESTIMONIALS</h3>
+        <h2 class="text-2xl lg:text-4xl font-bold text-bluetext font-Josefin pb-4 text-center mb-10">SOME EXPRESSION OF<br> OUR CLIENTS</h2>
+        <div class="flex flex-wrap">
+          
+          <div class="w-full lg:w-4/6 md:w-5/6 px-4 mx-auto rounded-iconradious shadow-2xl bg-white">
+            <div class="relative w-10/12 mx-auto">
+
+              <div class="text-center py-12">
+                <img src="images/author.jpg" class="inline-block">
+              </div>
+              <div class="py-2 pb-10 md:w-4/5 mx-auto">
+                <p class="text-base font-light italic text-bluetext text-center leading-7">“Partnering with Dotsquares has enabled us to extend our existing team seamlessly. As a fast moving technology company we need a partner who can react quickly and easily to our needs and deliver very high quality work to tight deadlines. Knowing that we have the ability to mix our team with both onshore and offshore resources gives us the stability to take the business to the next level.</p>
+              </div>
+              <div>
+                <h4 class="text-base font-semibold text-bluetext text-center leading-7 mb-12">Andy Derrick
+</h4>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+        
+      </div>
+      
+    </section>
+
+
+
+
+
+
+{{>footer}}
+
+
+
+<script type="text/javascript">
+
+
+// Popup js start here
+const modal_overlay = document.querySelector('#modal_overlay');
+const modal = document.querySelector('#modal');
+
+function openModal (value){
+    const modalCl = modal.classList
+    const overlayCl = modal_overlay
+
+    if(value){
+    overlayCl.classList.remove('hidden')
+    setTimeout(() => {
+        modalCl.remove('opacity-0')
+        modalCl.remove('-translate-y-full')
+        modalCl.remove('scale-150')
+    }, 100);
+    } else {
+    modalCl.add('-translate-y-full')
+    setTimeout(() => {
+        modalCl.add('opacity-0')
+        modalCl.add('scale-150')
+    }, 100);
+    setTimeout(() => overlayCl.classList.add('hidden'), 300);
+    }
+}
+openModal(false)
+
+// Popup js End here
+
+
+
+           // Menu toggle js
+           // grab everything we need
+           const btn = document.querySelector("button.mobile-menu-button");
+           const menu = document.querySelector(".mobile-menu");
+           
+           // add event listeners
+           btn.addEventListener("click", () => {
+             menu.classList.toggle("hidden");
+           });
+</script>
+</body>
+</html>

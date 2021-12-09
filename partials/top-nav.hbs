@@ -1,0 +1,61 @@
+<div id="modal_overlay" class="hidden fixed inset-0 bg-black bg-opacity-30 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0 z-10">
+<div id="modal" class="pacity-0 transform -translate-y-full scale-150  relative w-10/12 md:w-1/2 bg-white rounded shadow-lg transition-opacity transition-transform duration-300">
+    <button onclick="openModal(false)" class="absolute -top-3 -right-3 bg-red-500 hover:bg-red-600 text-2xl w-10 h-10 rounded-full focus:outline-none text-textwhite"><i class="fa fa-times" aria-hidden="true"></i></button>
+
+<div class="w-full">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm mb-2" for="username">
+        Username
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-12" id="username" type="text" placeholder="Username">
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm mb-2" for="password">
+        Password
+      </label>
+      <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline  h-12" id="password" type="password" placeholder="******************">
+      <p class="text-red-500 text-xs italic">Please choose a password.</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <button class="bg-primary hover:bg-secondary text-textwhite font-medium capitalize px-10 py-4 inline-block" type="button">
+        Sign In
+      </button>
+      <a class="inline-block align-baseline text-sm text-blue-500 hover:text-blue-800" href="#">
+        Forgot Password?
+      </a>
+    </div>
+  </form>
+</div>
+
+</div>
+
+</div>
+
+<div class="xl:py-0 xl:pr-0 xl:pl-4 2xl:pl-12 flex justify-between flex-wrap xl:flex-nowrap">
+    <div class="w-full container mx-auto flex items-center justify-between mt-0 px-6 py-3 relative h-24">
+        
+        <div class="hidden md:flex md:items-center md:w-auto w-full">
+            <span class="text-greytext inline-block mr-2 text-xs font-medium">Consultation</span>
+            <a href="#" class="text-primary inline-block mr-2 text-xs font-medium">+44[0]208 769 1585</a>
+        </div>
+        <div class="w-auto absolute left-0 right-0 mx-auto w-full inline-block md:max-w-xs text-center w-3/5">
+            <a class="inline-block" href="/">
+                <img class="md:w-44 lg:w-auto h-auto " src="images/main-logo.png">
+            </a>
+        </div>
+        <div class="w-auto flex items-center absolute right-0 md:top-6 top-24 z-10">
+            <div class="flex">
+                <button class="flex ease-in-out duration-700 outline-none focus:outline-none bg-lightgrey hover:text-gray-300 opacity-60 capitalize pl-6 pr-9 py-1 text-2xl inline-block rounded-l-full w-24 hover:w-72 text-left"><i class="relative top-2 fa fa-search" aria-hidden="true"></i>
+                    <input type="search" id="query" name="q" placeholder="Enter ZIP Code or Address" class="h-10 text-base bg-transparent w-full block mx-2 focus:outline-none">
+                </button>
+                <button onclick="openModal(true)" class="bg-primary hover:bg-secondary text-textwhite capitalize px-8 py-2 md:px-14 md:py-2 text-sm inline-block rounded-full relative -ml-6 leading-8">LOGIN</button>
+            </div>
+       </div>
+    </div>
+</div>
+
+
+
+
+
