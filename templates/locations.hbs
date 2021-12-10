@@ -1,0 +1,71 @@
+---
+{
+    "stream": {
+        "$id": "ds_locations",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_dotsquaresHotel"
+        ]
+      },
+      "fields": [
+        "id",
+        "name",
+        "slug",
+        "description",
+        "c_locations.name",
+        "c_locations.mainPhone",
+        "c_locations.slug",
+        "c_locations.photoGallery",
+        "c_locations.address",
+        "c_locations.hours",
+        "c_locations.featuredMessage"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "{{slug}}"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{name}}</title>
+        <meta name="description" content="{{description}}">
+        {{>head}}
+        {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+        <!--Replace with your tailwind.css once created-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+    <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
+        {{>top-nav}}
+        {{>navbar}}
+        <section class="bg-clientbg">
+            <div class="flex flex-wrap">
+                <div class="w-full xl:px-20 xl:py-16 px-10 py-10 flex flex-wrap">
+                    <h2 class="text-3xl lg:text-4xl md:text-3xl font-semibold text-textblack mb-10 text-center w-full">Our {{name}}</h2>            
+                        <div class="w-full  flex flex-wrap">
+                        {{#each c_locations}}
+                        <div class="w-full md:w-1/3 xl:px-0 xl:py-0 px-5 py-5">
+                            <h4 class="text-base font-medium text-textblack mb-2"><a href="/location/{{slug}}.html">{{name}}</a></h4>
+                            <p class="text-sm font-light text-textblack leading-7 mb-2">
+                                {{address.line1}},
+                                {{address.city}}, {{address.region}} {{address.postalCode}}, {{address.countryCode}}
+                            </p>
+                            <p class="text-base font-medium text-textblack mb-8"><a href="tel:{{mainPhone}}" class="text-primary">{{mainPhone}}</a></p>
+                        </div>
+                        {{/each}}
+                    </div>    
+                </div>    
+            </div>
+        </section>
+        {{>faq-above-footer}}
+        {{>footer}}
+    </body>
+</html>

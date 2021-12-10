@@ -1,0 +1,96 @@
+---
+{
+    "stream": {
+        "$id": "ds-faqs",
+        "source": "knowledgeGraph"
+      "filter": {
+        "entityTypes": [
+          "ce_dotsquaresHotel"
+        ]
+      },
+      "fields": [
+        "id",
+        "name",
+        "slug",
+        "description",
+        "c_locations.name",
+        "c_locations.question",
+        "c_locations.answer"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    }
+}
+---
+<section class="bg-white py-8">
+    <div class="container py-8 px-6 mx-auto">
+        <h2 class="text-3xl lg:text-5xl md:text-3xl font-semibold text-bluetext font-Josefin pb-4 mb-3">Frequently Asked Questions</h2>
+        <div class="pt-5 grid grid-cols-1 gap-x-4 gap-y-4 lg:grid-cols-2" x-data={show:false}>
+            {{#each c_locations}}
+                {{question}}
+                {{answer}}
+            {{/each}}
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+           <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+            <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+             Lorem ipsum dolor Sit amet Consectetur Adipiscing elit.
+            </summary>
+            <p class="py-2 text-sm font-normal text-bluetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia justo nisl, id finibus sem porttitor in. In pretium dapibus viverra. Sed ornare lobortis erat quis interdum. Integer dignissim neque odio, in laoreet magna finibus sed. Donec egestas vel felis quis accumsan. Vestibulum porttitor, dui et dictum fermentum, est nisl accumsan lectus, id cursus tellus odio et orci. </p>
+          </details>
+        </div>        
+    </div>
+</section>
