@@ -75,12 +75,11 @@
                 {{#each c_relatedFAQs}}
                 <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
                     <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
-                    {{convertRTFToHTML question}}
+                    {{question}}
                     </summary>
                     <p class="py-2 text-sm font-normal text-bluetext">{{convertRTFToHTML answer}}</p>
                 </details>
-                {{/each}}        
-                   
+                {{/each}}
                 </div>        
             </div>
         </section>
