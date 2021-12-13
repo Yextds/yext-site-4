@@ -20,7 +20,9 @@
         "c_locations.photoGallery",
         "c_locations.address",
         "c_locations.hours",
-        "c_locations.featuredMessage"
+        "c_locations.featuredMessage",
+        "c_relatedFAQs.question",
+        "c_relatedFAQs.answer"
       ],
       "localization": {
           "locales": ["en"]
@@ -65,7 +67,23 @@
                 </div>    
             </div>
         </section>
-        {{>faq-above-footer}}
+        <section class="bg-white py-8">
+            <div class="container py-8 px-6 mx-auto">
+                <h2 class="text-3xl lg:text-5xl md:text-3xl font-semibold text-bluetext font-Josefin pb-4 mb-3">Frequently Asked Questions</h2>
+                <div class="pt-5 grid grid-cols-1 gap-x-4 gap-y-4 lg:grid-cols-2" x-data={show:false}>
+
+                {{#each c_relatedFAQs}}
+                <details class="rounded-md shadow-md px-5 py-5 bg-white hover:cursor-pointer">
+                    <summary class="text-base md:text-lg font-medium text-bluetext hover:text-ll-red">
+                    {{convertRTFToHTML question}}
+                    </summary>
+                    <p class="py-2 text-sm font-normal text-bluetext">{{convertRTFToHTML answer}}</p>
+                </details>
+                {{/each}}           
+                </div>        
+            </div>
+        </section>
+
         {{>footer}}
     </body>
 </html>
