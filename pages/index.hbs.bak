@@ -1,6 +1,38 @@
 ---
 {
-"urlFormat": "index.html" 
+    "stream": {
+        "$id": "home",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_homePage"
+        ]
+      },
+      "fields": [
+        "id",
+        "name",
+        "slug",
+        "title",
+        "description",
+        "c_bannerURL",
+        "c_about",
+        "c_homeBlogs.name",
+        "c_homeBlogs.slug",
+        "c_homeBlogs.description",
+        "c_homeBlogs.c_image",
+        "c_relatedProducts.title",
+        "c_relatedProducts.photoGallery",
+        "c_relatedProducts.price",
+        "ds_services.title"
+        "ds_services.description"
+        "ds_services.icon"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "index.html"
 }
 ---
 <!DOCTYPE html>

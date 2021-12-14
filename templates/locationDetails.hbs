@@ -20,7 +20,9 @@
         "menuUrl",
         "websiteUrl",
         "hours",
-        "photoGallery"
+        "photoGallery",
+        "c_relatedFAQs.question",
+        "c_relatedFAQs.answer"
       ],
       "localization": {
           "locales": ["en"]
@@ -77,7 +79,9 @@
                 </div>
             </div>
         </section>
-        {{>faq-above-footer}}
+        {{#if c_relatedFAQs}}
+         {{>faq-above-footer c_relatedFAQs}}
+        {{/if}}
         {{>footer}}
     </body>
 </html>
