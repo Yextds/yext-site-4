@@ -6,7 +6,7 @@
         "destination": "pages",
         "filter": {
             "entityTypes": [
-                "product"
+                "products"
             ]
         },
         "fields": [
