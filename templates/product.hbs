@@ -29,20 +29,23 @@
 }
 ---
 
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Product :: {{name}}</title>
-    <meta name="description" content={{richTextDescription}}>
-    {{>head}}
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-</head>
-
-<div class="container mx-auto px-4">
-    <body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{name}}</title>
+        <meta name="description" content="{{description}}">
+        {{>head}}
+        {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+        <!--Replace with your tailwind.css once created-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+    <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
+        {{>top-nav}}
         {{>navbar}}
             <div class="grid grid-cols-2 divide-x gap-3 pl-10">
                 <div class="col-span-1">
@@ -67,7 +70,6 @@
                 </div>
             </div>
     </body> 
-</div>
 
 {{>footer}}
 

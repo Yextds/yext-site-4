@@ -32,21 +32,23 @@
 }
 ---
 
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{name}}</title>
-    <meta name="description" content=Category page for {{name}}.>
-    {{>head}}
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-</head>
-
-  <div class="container mx-auto px-4">
-    <body>
-        
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{name}}</title>
+        <meta name="description" content="{{description}}">
+        {{>head}}
+        {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+        <!--Replace with your tailwind.css once created-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+    <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
+    {{>top-nav}}
     {{>navbar}}
 
     <div class="container py-8 px-6 mx-auto">
@@ -81,7 +83,6 @@
     {{/each}}
 
     </body> 
-  </div>
 
 {{>footer}}
 
