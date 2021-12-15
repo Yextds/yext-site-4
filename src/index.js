@@ -1,4 +1,6 @@
 import './global.css';
+import './fonts/fonts.css';
+import './css/font-awesome.min.css';
 
 function importAll(r) {
     let images = {};
@@ -6,4 +8,6 @@ function importAll(r) {
     return images;
   }
   
-  const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg)$/));
+  const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg|webp)$/));
+  const fonts = importAll(require.context('./fonts', false, /\.(woff|woff2|eot|ttf|svg)$/));
+  console.log('fonts',fonts);
