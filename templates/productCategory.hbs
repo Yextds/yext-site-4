@@ -1,12 +1,15 @@
 ---
 {
     "stream": {
-        "$id": "product-categories",
+        "$id": "categories",
         "source": "knowledgeGraph",
         "destination": "pages",
       "filter": {
         "entityTypes": [
           "ce_productCategory"
+        ],
+        "savedFilterIds": [
+          "822661827"
         ]
       },
       "fields": [
@@ -15,6 +18,7 @@
         "meta",
         "name",
         "slug",
+        "c_image",
         "richTextDescription",
         "c_relatedProducts.name",
         "c_relatedProducts.slug",
@@ -46,23 +50,25 @@
     <link rel="stylesheet" href="/fonts/fonts.css" />
     </head>
     <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
-    {{>top-nav}}
-    {{>navbar}}
-    <div class="w-full max-w-7xl mx-auto py-8 px-6 text-center">
-      <div class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl md:mb-8">{{name}}</div>
-    </div>
-    <div class="flex flex-wrap w-full max-w-7xl mx-auto">
-    {{#each c_relatedProducts}}
-      
-        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-4 text-center mb-10">
-          <div class="mb-5 w-full">
-            {{>photoGallery photoGallery}}
-          </div>
-          <h3 class="mb-3 sm:h-12"><a class="tracking-wide no-underline hover:no-underline font-normal text-gray-800 text-base mb-8 hover:text-primary" href={{slug}}>{{name}}</a></h3>
-          <div class="font-semibold text-xl">${{price.value}} </div>
+      {{>top-nav}}
+      {{>navbar}}
+      <div class="w-full max-w-7xl mx-auto py-8 px-6 text-center">
+        <div class="w-full text-center mb-10 relative h-24">
+            <img class="w-full h-24 object-cover" src="{{c_image}}" />
+            <div class="w-full absolute top-0 bottom-0 left-0 right-0 text-6xl align-middle bg-red-400 bg-opacity-25 py-5 text-textblack font-bold">{{name}}</div>
         </div>
-    {{/each}}
-    </div>
-    {{>footer}}
+      </div>
+      <div class="flex flex-wrap w-full max-w-7xl mx-auto">
+        {{#each c_relatedProducts}}
+          <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 px-4 text-center mb-10">
+            <div class="mb-5 w-full">
+              {{>photoGallery photoGallery}}
+            </div>
+            <h3 class="mb-3 sm:h-12"><a class="tracking-wide no-underline hover:no-underline font-normal text-gray-800 text-base mb-8 hover:text-primary" href={{slug}}>{{name}}</a></h3>
+            <div class="font-semibold text-xl">${{price.value}} </div>
+          </div>
+        {{/each}}
+      </div>
+      {{>footer}}
     </body>
 </html>
