@@ -1,6 +1,6 @@
         {{#each this}}
             {{#if @first}}
-                <a class="w-full inline-block border border-black border-opacity-10" href={{this.image.url}}>
+                <a class="w-full inline-block border border-black border-opacity-10" href="{{this.image.url}}" target="_blank">
                     <img class="hover:grow hover:shadow-lg object-contain aspect-square" src={{this.image.url}}>
                 </a>            
             {{/if}}
