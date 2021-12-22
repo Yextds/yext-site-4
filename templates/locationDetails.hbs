@@ -67,7 +67,6 @@
                     <h4 class="text-base font-medium text-textwhite mb-2">Opening hours</h4>
                     <ul>
                       <li class="text-sm font-light text-textwhite pb-2"><span class="inline-block w-40 font-medium">Monday:</span>{{#if hours.monday.openIntervals}} {{#each hours.monday.openIntervals}} {{start}} - {{end}}</br>{{/each}}{{/if}}{{#if hours.monday.isClosed}} <span  class="text-primary">Closed</span> {{/if}}</li>
-                      
                       <li class="text-sm font-light text-textwhite pb-2"><span class="inline-block w-40 font-medium">Tuesday:</span>{{#if hours.tuesday.openIntervals}}{{#each hours.tuesday.openIntervals}} {{start}} - {{end}}</br>{{/each}}{{/if}}{{#if hours.tuesday.isClosed}} <span  class="text-primary">Closed</span> {{/if}}</li>
                       <li class="text-sm font-light text-textwhite pb-2"><span class="inline-block w-40 font-medium">Wednesday:</span>{{#if hours.wednesday.openIntervals}}{{#each hours.wednesday.openIntervals}} {{start}} - {{end}}</br>{{/each}}{{/if}}{{#if hours.wednesday.isClosed}} <span  class="text-primary">Closed</span> {{/if}}</li>
                       <li class="text-sm font-light text-textwhite pb-2"><span class="inline-block w-40 font-medium">Thursday:</span>{{#if hours.thursday.openIntervals}}{{#each hours.thursday.openIntervals}} {{start}} - {{end}}</br>{{/each}}{{/if}}{{#if hours.thursday.isClosed}} <span  class="text-primary">Closed</span> {{/if}}</li>
