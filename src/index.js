@@ -10,4 +10,3 @@ function importAll(r) {
   
   const images = importAll(require.context('./images', false, /\.(png|jpe?g|svg|webp)$/));
   const fonts = importAll(require.context('./fonts', false, /\.(woff|woff2|eot|ttf|svg)$/));
-  console.log('fonts',fonts);
