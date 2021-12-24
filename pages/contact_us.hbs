@@ -9,11 +9,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>About Us</title>
-        <meta name="description" content="About {{global.name}}">
+        <title>Contact Us | {{global.name}}</title>
+        <meta name="description" content="Contact Us | {{global.name}}">
         {{>head}}
         <link rel="stylesheet" href="/css/font-awesome.min.css" />
         <link rel="stylesheet" href="/fonts/fonts.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
         
@@ -57,7 +58,7 @@
                                 <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="description" placeholder="Enter Your Message" name="description"></textarea>
                             </div>
                             <div class="flex items-center justify-between">
-                                <button class="bg-primary hover:bg-menubg text-textwhite font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                <button class="bg-primary hover:bg-menubg text-textwhite font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submit-btn" type="submit">
                                     Submit
                                 </button>
                             </div>
@@ -68,30 +69,38 @@
         </section>
         {{>footer}}
         <script>
-            const formElem = document.querySelector('form');
-            formElem.addEventListener('submit', (e) => {
+            $(document).on('submit', '#contact-form', (e) => {
                 e.preventDefault();
-                new FormData(formElem);
-            });
+                var data = {};
+                $.each($('#contact-form').serializeArray(), function(_, kv) {
+                    if(kv.name == 'emails'){
+                        data[kv.name] = [kv.value];
+                    }else{
+                        data[kv.name] = kv.value;
+                    }
+                });
 
-            formElem.addEventListener('formdata', (e) => {
-                let data = e.formData;
-                var request = new XMLHttpRequest();
-                
-
-                fetch('https://api-sandbox.yext.com/v2/accounts/2679138/entities?api_key=45ff39acf937fd79c35c911b61fd7e5f&v=20211223&entityType=ce_contactEnquiries', {
-                    method: 'post',
-                    headers: {
-                        'Accept': 'application/json, text/plain, */*',
-                        'Content-Type': 'application/json'
+                $.ajax({
+                    url: "https://api-sandbox.yext.com/v2/accounts/2679138/entities?api_key=b262ae7768eec3bfa53bfca6d48e4000&v=20211224&entityType=ce_contactEnquiries", 
+                    data : data,
+                    type: "POST",
+                    dataType: "json",
+                    beforeSend: function(){
+                        $('#submit-btn').prop('disabled',true);
+                        $('#submit-btn').html('<i class="fa fa-circle-o-notch fa-spin"></i> Submit');
                     },
-                    body: JSON.stringify(data)
-                })
-                .then(res => res.json())
-                .then(res => {
-                    console.log(res);
-                    formElem.reset();
-                }).catch((e) => console.log(e));
+                    success: function(result){
+                        console.log(result);
+                        if(result.status == 'success'){
+
+                        }
+                        $('#submit-btn').prop('disabled',false);
+                        $('#submit-btn').html('Submit');
+                    },
+                    error: function(err){
+                        console.log(err.statusCode)
+                    }
+                });
             });
             
         </script>
