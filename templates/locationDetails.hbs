@@ -40,12 +40,19 @@
         <title>{{name}}</title>
         <meta name="description" content="{{featuredMessage}}">
         {{>head}}
+    {{!-- <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> --}}
+    <!--Replace with your tailwind.css once created-->
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
     </head>
     <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
         {{>top-nav}}
         {{>navbar}}
         <section class="bg-menubg">
             <div class="flex flex-wrap">
+                <!-- <div class="lg:w-2/4 w-full">
+                    <img src="/images/map-img.jpg" class="inline-block w-full h-full object-cover">
+                </div> -->
                 <div class="lg:w-2/4 w-full lg:scale-80 p-6 flex flex-col space-y-6">
                     {{>photoGallerySingle photoGallery}}
                 </div>

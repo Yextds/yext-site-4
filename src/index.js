@@ -1,6 +1,6 @@
-import './css/fonts.css';
+import './global.css';
+import './fonts/fonts.css';
 import './css/font-awesome.min.css';
-import './css/global.css';
 
 function importAll(r) {
     let images = {};
