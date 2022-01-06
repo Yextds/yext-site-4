@@ -6,11 +6,10 @@ module.exports = {
     mode: 'production',
     entry: {
         index: './src/index.js',
-        another: './src/another-module.js',
+
       }, 
     output: {
         filename: 'index.bundle.js',
-        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'assets'),
         clean: true
     },
