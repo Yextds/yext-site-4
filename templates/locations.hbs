@@ -66,8 +66,8 @@
                     <div class="w-full  flex flex-wrap">									
 						<div id="leftside" class="w-full md:w-1/4 xl:px-0 xl:py-0 px-5 py-5 overflow-y-auto " style="height:600px">						 
 							{{#each c_locations}}
-							<div data-name='{{name}}' data-lat={{cityCoordinate.latitude}} data-lng={{cityCoordinate.longitude}} class="list-group-item w-full divide-y-2 divide-gray-100">
-							<h4 class="text-base font-medium text-textblack mb-2">{{name}}</h4>
+							<div  class="list-group-item w-full divide-y-2 divide-gray-100">
+							<h4 class="text-base font-medium text-textblack mb-2">{{cityCoordinate}}</h4>
 								<p class="address text-sm font-light text-textblack leading-7 mb-2">
 								    {{address.line1}},
 									{{address.city}}, {{address.region}} {{address.postalCode}}, {{address.countryCode}}
