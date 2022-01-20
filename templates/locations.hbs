@@ -155,9 +155,9 @@ $(function(){
     });
 	
 	$("#button-addon2").click(function(){
-	    
-		var varData = { 
-				api_key: '45ff39acf937fd79c35c911b61fd7e5f', 
+	     
+		var varData = { 				
+				api_key: 'eaadc02254a6ce5bfd7e54585920a2c0', 
 				v: '20211229', 
 				entityTypes: 'location'
 		};
@@ -195,20 +195,24 @@ $(function(){
 			   ]
 			}; 
 			
-			/* var jsstring = {
+			/* 
+			var jsstring = {
 			  "address.line1":{
 				"$contains":searchText
 			  }
-			}; */
+			}; 
+			*/
 			
 		  
 		  var filterpar = JSON.stringify(jsstring);		  		 
 		  var filter = encodeURI(filterpar);	
-		  // alert(filter); 	  
-		  var url = "https://api-sandbox.yext.com/v2/accounts/me/entities?filter="+filter;	
+		  	  
+		  var url = "https://liveapi.yext.com/v2/accounts/me/entities?filter="+filter;		  
 		  
-		}else{		  
-		  var url = "https://api-sandbox.yext.com/v2/accounts/me/entities";			  
+		}else{	
+		
+		   var url = "https://liveapi.yext.com/v2/accounts/me/entities";
+		   
 		}
 		
 		
@@ -231,7 +235,7 @@ $(function(){
 						html  += '<p class="address text-sm font-light text-textblack leading-7 mb-2">';
 						html  += entity.address.line1+', '+entity.address.city+', '+entity.address.region+', '+entity.address.postalCode+', '+entity.address.countryCode;
 						html  += '</p>';
-						html  += '<p class="text-base font-medium text-textblack mb-8"><a href="tel:'+entity.mainPhone+'" class="text-primary">'+entity.mainPhone+'</a></p>';
+						// html  += '<p class="text-base font-medium text-textblack mb-8"><a href="tel:'+entity.mainPhone+'" class="text-primary">'+entity.mainPhone+'</a></p>';
 						html  += '<p class="mb-8"><a  href="/location/'+entity.meta.id+'-'+convertToSlug(entity.neighborhood)+'.html">Read More</a></p>';
 						html  += '</div>';
 					
@@ -271,9 +275,8 @@ function initializeAutocomplete() {
 google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
 
 function convertToSlug(Text) {
-  return Text.toLowerCase()
-             .replace(/ /g, '-')
-             .replace(/[^\w-]+/g, '');
+  return Text;
+  // return Text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
 }
    
 </script>
