@@ -52,7 +52,7 @@
       {{>navbar}}
       <div class="w-full max-w-7xl mx-auto py-8 px-6 text-center">
         <div class="w-full text-center mb-10 relative h-24">
-            <img class="w-full h-24 object-cover" src="{{c_image}}" width="" height="" alt="" />
+            <img class="w-full h-24 object-cover" src="{{c_image}}" width="1232" height="96" alt="" />
             <div class="w-full absolute top-0 bottom-0 left-0 right-0 text-6xl align-middle bg-red-400 bg-opacity-25 py-5 text-textblack font-bold">{{name}}</div>
         </div>
         <div class="mb-6 text-greytext inline-block w-full text-base">
@@ -67,7 +67,7 @@
                 {{#each photoGallery}}
                     {{#if @first}}
                         <a class="w-full inline-block border border-black border-opacity-10" href={{slug}}>
-                            <img width="" height="" alt="" class="hover:grow hover:shadow-lg object-contain aspect-square" src={{image.url}}>
+                            <img width="286" height="286" alt="" class="hover:grow hover:shadow-lg object-contain aspect-square" src={{image.url}}>
                         </a>            
                     {{/if}}
                 {{/each}}
