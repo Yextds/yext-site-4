@@ -48,7 +48,13 @@
         <section class="bg-clientbg">            
 			<div class="flex flex-wrap">
 				<div class="w-full xl:px-20 xl:py-16 px-10 py-10 flex flex-wrap">
-                    <h2 class="text-3xl lg:text-4xl md:text-3xl font-semibold text-textblack mb-10 text-center w-full">Locator 1</h2>            
+                    <h2 class="text-3xl lg:text-4xl md:text-3xl font-semibold text-textblack mb-10 text-center w-full">Locator (Yext.com Account)</h2>
+					<p>
+					API URL - https://liveapi.yext.com/v2/accounts/me/entities<br/>
+					API Key - CRMApp ( eaadc02254a6ce5bfd7e54585920a2c0 )<br/>					
+					Account ID - 3642013<br/>
+					Account URL - https://www.yext.com/s/3642013/entities2<br/>	
+					</p>									
                  </div>    
                 <div class="w-full xl:px-20 xl:py-16 px-10 py-10 flex flex-wrap">  
 				<div class="flex justify-center">
@@ -65,17 +71,7 @@
 					</div>
                     <div class="w-full  flex flex-wrap">									
 						<div id="leftside" class="w-full md:w-1/4 xl:px-0 xl:py-0 px-5 py-5 overflow-y-auto " style="height:600px">						 
-							{{#each c_locations}}
-							<div data-name='{{name}}' data-lat={{cityCoordinate.latitude}} data-lng={{cityCoordinate.longitude}} class="list-group-item w-full divide-y-2 divide-gray-100">
-							<h4 class="text-base font-medium text-textblack mb-2">{{name}}</h4>
-								<p class="address text-sm font-light text-textblack leading-7 mb-2">
-								    {{address.line1}},
-									{{address.city}}, {{address.region}} {{address.postalCode}}, {{address.countryCode}}
-								</p>
-								<p class="text-base font-medium text-textblack "><a href="tel:{{mainPhone}}" class="text-primary">{{mainPhone}}</a></p>
-								<p class="mb-8"><a  href="/location/{{slug}}.html">Read More</a></p>
-							</div>
-							{{/each}}
+							
 						</div> 
 						<div class="w-full md:w-3/4 xl:px-0 xl:py-0 px-5 py-5">
 							<div class="w-full xl:px-0 xl:py-0 px-5 py-5" id="map_canvas"></div>
@@ -143,7 +139,10 @@ Initialize();
 (load_map)(window.Mapping = window.Mapping || {}, jQuery);                                   
 
 $(function(){
-    $('.search_key').keyup(function(){
+    
+	getLocation();	
+	
+	$('.search_key').keyup(function(){
 	
        /* var searchText = $(this).val();        
         $('.list-group-item').each(function(){            
@@ -155,7 +154,15 @@ $(function(){
     });
 	
 	$("#button-addon2").click(function(){
-	     
+	     	getLocation();	
+	});
+	
+	
+});
+
+
+function getLocation() {
+	
 		var varData = { 				
 				api_key: 'eaadc02254a6ce5bfd7e54585920a2c0', 
 				v: '20211229', 
@@ -216,7 +223,6 @@ $(function(){
 		}
 		
 		
-		
 		$.ajax({
 		  url: url,
 		  type: "get", //send it through get method
@@ -259,9 +265,8 @@ $(function(){
 			$("#leftside").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
 		  }
 		});
-	});
 	
-});
+	}
 
 function initializeAutocomplete() {
   var input = document.getElementById('search_key');
@@ -272,7 +277,7 @@ function initializeAutocomplete() {
   });
 }
 
-google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+// google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
 
 function convertToSlug(Text) {
   return Text;
