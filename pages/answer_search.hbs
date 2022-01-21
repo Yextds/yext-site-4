@@ -1,0 +1,100 @@
+---
+
+{
+   "$schema":"https://schema.yext.com/config/answers/answers-config/v1",
+   "$id":"dotsquares_answers",
+   "name":"Dotsquares Answers",
+   "externalKey":"dotsquares-answers",   
+   "verticals":{
+      "locations":{
+         "entityTypes":[
+            "location"
+         ],
+         "name":"Locations",
+         "searchableFields":{
+            "builtin.entityType":{
+               "nlpFilter":true
+            },
+            "builtin.location":{
+               "nlpFilter":true
+            },
+            "keywords":{
+               "phraseMatch":true
+            },
+            "name":{
+               "textSearch":true
+            }
+         }
+      }
+   },   
+   "urlFormat":"answer-search.html"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Dotsquares Answers</title>
+      <meta name="description" content="Dotsquares Answers {{global.name}}">
+      {{>head}}
+      <link rel="stylesheet" type="text/css" href="https://assets.sitescdn.net/answers/v1/answers.css" />
+      <!-- Answers Layout styling -->
+      <style>
+         .answers-layout {
+         max-width: 50rem;
+         margin: auto;
+         }
+      </style>
+      <!-- Answers JS-->
+      <script src="https://assets.sitescdn.net/answers/v1/answers.min.js"></script>
+   </head>
+   <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
+      {{>top-nav}}
+      {{>navbar}}		
+      <section class="bg-white py-8"> 
+         <div class="container md:py-8 px-6 mx-auto"> 
+            <div class="xl:w-3/6 mx-auto text-center py-8 px-6 md:w-4/5">
+               <div class="answers-layout">
+                  <div class="search-bar"></div>
+                  <div class="spell-check"></div>
+                  <div class="direct-answer"></div>
+                  <div class="universal-results"></div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <script>
+         ANSWERS.init({
+             apiKey: "cc8b0bde99d9d71f0f7a6fa03200807b",  //sample test experience
+             experienceKey: "dotsquares-answers", //sample test experience
+             businessId: "2679138",  //sample test experience
+             environment: "sandbox",
+             onReady: function () {
+                 // init components
+                 this.addComponent("SearchBar", {
+                     container: ".search-bar",
+                     placeholderText: "Search"
+                 });
+                 this.addComponent("SpellCheck", {
+                     container: ".spell-check"
+                 });
+                 this.addComponent("DirectAnswer", {
+                     container: ".direct-answer"
+                 });
+                 this.addComponent("UniversalResults", {
+                     container: ".universal-results"
+                 });
+             }
+         });
+      </script>
+      <script
+         src="https://assets.sitescdn.net/answers/v1.5/answers.min.js"
+         onload="ANSWERS.domReady(initAnswers)"
+         async
+         defer
+         ></script>
+      {{>footer}}
+   </body>
+</html>
