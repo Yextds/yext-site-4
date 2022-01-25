@@ -235,7 +235,7 @@
 		  			var html = '';
 		  			$.each(result.response.entities, function( index, entity ){
 
-		  				html  += '<div data-name="'+entity.name+'" data-lat="'+entity.yextDisplayCoordinate.latitude+'" data-lng="'+entity.yextDisplayCoordinate.longitude+'" class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">';
+		  				html  += '<div data-slug="/location/'+entity.meta.id+'-'+convertToSlug(entity.neighborhood)+'.html" data-name="'+entity.name+'" data-lat="'+entity.yextDisplayCoordinate.latitude+'" data-lng="'+entity.yextDisplayCoordinate.longitude+'" class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">';
 		  				html  += '<h4 class="text-base font-medium text-textblack mb-1">'+entity.name+'</h4>';
 		  				html  += '<p class="address text-sm font-light text-textblack leading-5 mb-1">';
 		  				html  += entity.address.line1+', '+entity.address.city+', '+entity.address.region+', '+entity.address.postalCode+', '+entity.address.countryCode;
