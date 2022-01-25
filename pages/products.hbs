@@ -1,6 +1,6 @@
 ---
-{
-    "urlFormat":"answer-search.html"
+{ 
+   "urlFormat":"products.html"
 }
 ---
 <!DOCTYPE html>
@@ -62,7 +62,7 @@
             verticalKey: "locations",
             icon: "pin",
             isFirst: false,
-            isActive: true,
+            isActive: false,
             hideInNavigation: false
           },
 		  {
@@ -71,7 +71,7 @@
             verticalKey: "products",
             icon: "pin",
             isFirst: false,
-            isActive: false
+            isActive: true
           }
         ],        
         onReady: function () {
@@ -79,7 +79,7 @@
           this.addComponent("SearchBar", {
             container: ".searchbar-container",
             allowEmptySearch: true,
-            verticalKey: "locations"
+            verticalKey: "products"
           });
           this.addComponent("Navigation", {
             container: ".navigation-container"
@@ -87,15 +87,16 @@
           // init components
           this.addComponent("VerticalResults", {
             container: ".vertical-container",
-            verticalKey: "locations",
+            verticalKey: "products",
             searchOnChange: true,
 			card: {
               cardType: "Standard",
               dataMappings: {
                 title: (item) => item.name,
-                subtitle: (item) => item.address.line1,
-                details: (item) => item.description,               
-                url: (item) => 'location/'+item.slug+'.html'
+				subtitle: (item) => '$'+item.price.value,
+                details: (item) => item.richTextDescription,
+				image: (item) => item.photoGallery ? item.photoGallery[0].image.url : null,	
+                url: (item) => item.slug
               }
             }
           });

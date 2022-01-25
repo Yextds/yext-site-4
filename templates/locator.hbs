@@ -62,7 +62,7 @@
     						</div> 
     						<div id="leftside-inner" class="overflow-y-auto h-[542px] w-full">
 	    						{{#each c_locations}}
-	    						<div data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}} data-lng={{yextDisplayCoordinate.longitude}} class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">
+	    						<div data-slug={{slug}} data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}} data-lng={{yextDisplayCoordinate.longitude}} class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">
 	    							<h4 class="text-base font-medium text-textblack mb-1">{{name}}</h4>
 	    							<p class="address text-sm font-light text-textblack leading-5 mb-1">
 	    								{{address.line1}},
@@ -114,23 +114,41 @@
     					self.map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
     					self.markers = [];
     					self.infoWindow = new google.maps.InfoWindow();
-
+						// var bounds = new google.maps.LatLngBounds();
+						
+						
     					$('.list-group-item').each(function() {
     						var $this = $(this);
     						var pos = new google.maps.LatLng($this.data('lat'), $this.data('lng'));
     						var marker = new google.maps.Marker({
     							position: pos,
-    							map: self.map
+    							map: self.map,
+								labelContent: "1",
     						});
+							
     						self.markers.push(marker);
+							
+							var location_name = $this.data('name');
+							var slug = '/location/'+$this.data('slug')+'.html'; 
+							
+							
+							
+							var contentString = '<a class="text-base font-medium text-textblack " href="'+slug+'" target="_blank" >'+location_name+'</a>'; 
 
     						$this.click(function() {
     							self.map.panTo(pos);
-    							self.infoWindow.setContent($this.data('name'));
+    							self.infoWindow.setContent(contentString);
     							self.infoWindow.open(self.map, marker);
     							$this.siblings().removeClass('active');
     							$this.addClass('active');
     						});
+							
+							marker.addListener("click", () => {
+								self.infoWindow.setContent(contentString);
+    							self.infoWindow.open(self.map, marker);
+							});
+													
+							
     					});
     				}
 
