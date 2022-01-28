@@ -174,27 +174,27 @@
     							"$or":[
     							{
     								"address.line1":{
-    									"$startsWith":searchText
+    									"$contains":searchText
     								}
     							},
     							{
     								"address.city":{
-    									"$startsWith":searchText
+    									"$contains":searchText
     								}
     							},
     							{
     								"address.region":{
-    									"$startsWith":searchText
+    									"$contains":searchText
     								}
     							},
     							{
     								"address.countryCode":{
-    									"$startsWith":searchText
+    									"$contains":searchText
     								}
     							},
     							{
     								"address.postalCode":{
-    									"$startsWith":searchText
+    									"$contains":searchText
     								}
     							}
     							]
