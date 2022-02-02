@@ -1,0 +1,377 @@
+---
+{
+    "stream": {
+        "$id": "ds_store_locator",
+        "source": "knowledgeGraph",
+        "destination": "pages",
+      "filter": {
+        "entityTypes": [
+          "ce_mandcoLocation"
+        ]
+      },
+      "fields": [
+        "id",
+        "name",
+        "slug",
+        "description",
+        "c_locations.name",
+        "c_locations.mainPhone",
+        "c_locations.slug",
+        "c_locations.photoGallery",
+        "c_locations.address",
+        "c_locations.hours",
+        "c_locations.featuredMessage",
+		"c_locations.yextDisplayCoordinate",
+		"c_locations.c_departments.name",
+		"c_locations.c_departments.id"
+      ],
+      "localization": {
+          "locales": ["en"]
+      }
+    },
+    "urlFormat": "store-locator.html"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Store Locator</title>
+        <meta name="description" content="{{description}}">
+        {{>head}}
+    </head>
+    <body class="bg-white text-gray-600 font-Poppins leading-normal text-base tracking-normal">
+    	{{>top-nav}}
+    	{{>navbar}}
+    	<section class="bg-clientbg">            
+    		<div class="flex flex-wrap">
+    			<div class="w-full xl:px-20 xl:py-16 px-10 py-10 flex flex-wrap">
+    				<h2 class="text-3xl lg:text-4xl md:text-3xl font-semibold text-textblack mb-10 text-center w-full">Store Locator</h2>    				
+    			</div>   
+    			<div class="w-full flex flex-wrap">
+							<div class="">Enter a postcode, town or shop name to find a store near you:</div> 					    	
+							<div class="input-group relative flex items-stretch mx-5 mb-4">    							
+    							<input id="search_key" name="search_key" type="text" class="search_key form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 pl-8 leading-7 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none border-r-0" placeholder="Eg. EC2A 1RS" aria-label="Eg. EC2A 1RS" aria-describedby="button-addon2">
+    							<button class="btn leading-7 inline-block px-4 py-1.5 text-primary bg-white focus:outline-none focus:ring-0 transition duration-150 ease-in-out flex items-center border border-solid border-gray-300 border-l-0" type="button" id="button-addon2">
+    								Go
+    							</button>
+    						</div> 
+				</div>
+				
+				<div class="w-full flex flex-wrap">
+						<div class="department-list" >
+						
+						</div>
+						
+				</div>
+				
+				<div class="w-full flex flex-wrap">							
+    				<div class="w-full flex flex-wrap">									
+    					<div id="leftside" class="w-full md:w-1/4 xl:py-0 py-5">
+    						<div id="leftside-inner" class="overflow-y-auto h-[542px] w-full">
+	    						{{#each c_locations}}											
+	    						<div data-slug={{slug}} data-c_departments={{c_departments}} data-name='{{name}}' data-lat={{yextDisplayCoordinate.latitude}} data-lng={{yextDisplayCoordinate.longitude}} class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">
+	    							<h4 class="text-base font-medium text-textblack mb-1">{{name}}</h4>
+	    							<p class="address text-sm font-light text-textblack leading-5 mb-1">
+	    								{{address.line1}},
+	    								{{address.city}}, {{address.region}} {{address.postalCode}}, {{address.countryCode}}<br/> {{mainPhone}}
+	    							</p>
+									
+									<p>									
+									{{#each hours}}
+										<li><strong>{{@key}}</strong> 
+										{{#if isClosed}}
+											Closed
+										{{else}}
+											{{#each openIntervals}}
+												{{start}} to {{end}}
+											{{/each}}	
+										{{/if}}
+										</li>										
+									{{/each}}									
+									</p>
+
+									<div>DEPARTMENTS AVAILABLE IN STORE
+										<p>									
+										{{#each c_departments}}
+											<span>{{name}}</span>																	
+										{{/each}}									
+										</p>
+									</div>										    							
+	    							
+	    						</div>
+								
+	    						{{/each}}
+	    					</div>
+    					</div> 
+    					<div class="w-full md:w-3/4 xl:px-0 xl:py-0 px-5 py-5">
+    						<div class="w-full xl:px-0 xl:py-0 px-5 py-5 h-[600px]" id="map_canvas"></div>
+    					</div>
+
+    				</div>    
+    			</div>    
+    		</div>
+
+
+    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>		
+    		<script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false&libraries=places"></script> 
+
+
+    		<script>
+	
+	
+    			function load_map(Mapping, $, undefined) {
+    				var self = this;
+
+    				function Initialize() {
+
+    					var lat = 25.7748108;
+    					var lng = -80.197731;
+
+    					$('.list-group-item').each(function() {
+    						lat = $(this).data('lat');
+    						lng = $(this).data('lng');
+    					});
+
+
+
+    					var myOptions = {
+    						zoom: 8,
+    						center: new google.maps.LatLng( lat, lng ),
+    						mapTypeId: google.maps.MapTypeId.ROADMAP
+    					};
+
+    					self.map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+    					self.markers = [];
+    					self.infoWindow = new google.maps.InfoWindow();
+						// var bounds = new google.maps.LatLngBounds();
+						
+						
+    					$('.list-group-item').each(function() {
+    						var $this = $(this);
+    						var pos = new google.maps.LatLng($this.data('lat'), $this.data('lng'));
+    						var marker = new google.maps.Marker({
+    							position: pos,
+    							map: self.map,
+								labelContent: "1",
+    						});
+							
+    						self.markers.push(marker);
+							
+							var location_name = $this.data('name');
+							var slug = '/location/'+$this.data('slug')+'.html'; 
+							
+							
+							
+							var contentString = '<a class="text-base font-medium text-textblack " href="'+slug+'" target="_blank" >'+location_name+'</a>'; 
+
+    						$this.click(function() {
+    							self.map.panTo(pos);
+								self.map.setZoom(16);
+								self.map.setCenter(marker.getPosition());
+    							self.infoWindow.setContent(contentString);
+    							self.infoWindow.open(self.map, marker);
+    							$this.siblings().removeClass('active');
+    							$this.addClass('active');
+    						});
+							
+							marker.addListener("click", () => {
+								self.infoWindow.setContent(contentString);
+    							self.infoWindow.open(self.map, marker);
+							});
+													
+							
+    					});
+    				}
+
+    				Initialize();
+    			}
+
+    			(load_map)(window.Mapping = window.Mapping || {}, jQuery);                                   
+
+    			$(function(){
+					
+					getDepartments();	
+					
+    				$("#button-addon2").click(function(){
+
+    					var varData = { 				
+    						api_key: 'b262ae7768eec3bfa53bfca6d48e4000', 
+    						v: '20211229', 
+    						entityTypes: 'location'
+    					};
+
+    					var searchText =  $('.search_key').val();
+    					if(searchText){
+
+    						var jsstring = {
+    							"$or":[
+    							{
+    								"address.line1":{
+    									"$contains":searchText
+    								}
+    							},
+    							{
+    								"address.city":{
+    									"$contains":searchText
+    								}
+    							},
+    							{
+    								"address.region":{
+    									"$contains":searchText
+    								}
+    							},
+    							{
+    								"address.countryCode":{
+    									"$contains":searchText
+    								}
+    							},
+    							{
+    								"address.postalCode":{
+    									"$contains":searchText
+    								}
+    							}
+    							]
+    						}; 
+
+			/* 
+			var jsstring = {
+			  "address.line1":{
+				"$contains":searchText
+			  }
+			}; 
+			*/
+			
+
+			var filterpar = JSON.stringify(jsstring);		  		 
+			var filter = encodeURI(filterpar);	
+
+			var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities?filter="+filter;		  
+
+		}else{	
+
+			var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities";
+
+		}
+		
+		
+		
+		$.ajax({
+			url: url,
+		  type: "get", //send it through get method
+		  data: varData,
+		  success: function(result) { // alert();
+
+		  	if(!result.errors){
+
+		  		if(result.response.count > 0 ){
+
+		  			var html = '';
+		  			$.each(result.response.entities, function( index, entity ){
+
+		  				html  += '<div data-slug="'+entity.meta.id+'-'+convertToSlug(entity.neighborhood)+'" data-name="'+entity.name+'" data-lat="'+entity.yextDisplayCoordinate.latitude+'" data-lng="'+entity.yextDisplayCoordinate.longitude+'" class="list-group-item w-full px-5 divide-y-2 divide-gray-100 border-b mb-4 border-solid border-gray-300">';
+		  				html  += '<h4 class="text-base font-medium text-textblack mb-1">'+entity.name+'</h4>';
+		  				html  += '<p class="address text-sm font-light text-textblack leading-5 mb-1">';
+		  				html  += entity.address.line1+', '+entity.address.city+', '+entity.address.region+', '+entity.address.postalCode+', '+entity.address.countryCode;
+		  				html  += '</p>';
+						html  += '<p class="text-base font-medium text-textblack "><a href="tel:'+entity.mainPhone+'" class="text-primary">'+entity.mainPhone+'</a></p>';
+						html  += '<p class="mb-4"><a  href="/location/'+entity.meta.id+'-'+convertToSlug(entity.neighborhood)+'.html">Read More</a></p>';
+						html  += '</div>';
+						
+					});
+		  			$("#leftside-inner").html(html);
+		  			(load_map)(window.Mapping = window.Mapping || {}, jQuery); 
+
+
+		  		}else{
+		  			$("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+		  		}
+
+		  	}else{
+		  		$("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+		  	}	
+
+
+		  },
+		  error: function(xhr) {
+		  	$("#leftside-inner").html('<p class="text-base font-medium text-textblack mb-8">Location not found.</p>');
+		  }
+		});
+	});
+
+    			});
+
+    			function initializeAutocomplete() {
+    				var input = document.getElementById('search_key');
+    				new google.maps.places.Autocomplete(input, {
+    					componentRestrictions: { country: ["us"] },
+    					fields: ["street_number"],
+    					types: ["address"],
+    				});
+    			}
+
+// google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+
+function convertToSlug(Text) {
+	 return Text;
+  // return Text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+}
+
+
+function getDepartments() {
+
+	
+	var url = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities";
+	
+	var varData = { api_key: 'b262ae7768eec3bfa53bfca6d48e4000', 
+    				v: '20211229', 
+    				entityTypes: 'ce_departments'
+				};
+	
+	$.ajax({
+		  url: url,
+		  type: "get", //send it through get method
+		  data: varData,
+		  success: function(result) { // alert();
+
+		  	if(!result.errors){
+
+		  		if(result.response.count > 0 ){
+
+		  			var html = '';
+		  			$.each(result.response.entities, function( index, entity ){
+	  				
+						html  += '<li class="department-list-item">';						
+						html  += '<div class="form-check"><input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" name="" value="'+entity.meta.id+'">';
+						html  += '<label class="form-check-label inline-block text-gray-800" for="'+entity.name+'"> '+entity.name+'</label>';
+						html  += '</li>';
+						
+					});
+		  			$(".department-list").html(html);
+		  		
+		  		}else{
+		  			
+		  		}
+
+		  	}else{
+		  		
+		  	}	
+
+
+		  },
+		  error: function(xhr) {
+		  	
+		  }
+		});
+		
+		
+}
+
+</script>
+</section>
+
+{{>footer}}
+</body>
+</html>
